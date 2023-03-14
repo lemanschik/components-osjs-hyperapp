@@ -1,0 +1,118 @@
+{
+  "name": "@osjs/gui",
+  "version": "4.2.0-rc1",
+  "description": "OS.js GUI",
+  "module": "dist/esm.js",
+  "main": "dist/main.js",
+  "style": "dist/main.css",
+  "scripts": {
+    "test": "npm run eslint && npm run stylelint",
+    "eslint": "eslint index.js 'src/**/*.js'",
+    "build": "webpack",
+    "build:esm": "rollup -c",
+    "watch": "webpack --watch",
+    "watch:esm": "rollup -c --watch",
+    "stylelint": "stylelint index.scss src/**/*.scss",
+    "prepublishOnly": "npm run test && rm ./dist/* && NODE_ENV=production npm run build && npm run build:esm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/os-js/osjs-gui.git"
+  },
+  "keywords": [
+    "osjs"
+  ],
+  "files": [
+    "dist/esm.js",
+    "dist/esm.js.map",
+    "dist/main.js",
+    "dist/main.js.map",
+    "dist/main.css",
+    "dist/main.css.map",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "hyperapp": "^1.2.10",
+    "hyperapp-nestable": "^1.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@osjs/dev-meta": "^2.1.0",
+    "husky": "^8.0.1",
+    "rollup": "^1.32.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-babel-minify": "^9.1.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^6.0.4"
+  },
+  "author": "Anders Evenrud <andersevenrud@gmail.com>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/os-js/osjs-gui/issues"
+  },
+  "homepage": "https://github.com/os-js/osjs-gui#readme",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "extends": "@osjs/eslint-config"
+  },
+  "stylelint": {
+    "extends": "@osjs/stylelint-config"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": false
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ]
+  },
+  "esdoc": {
+    "source": "./src",
+    "destination": "./doc",
+    "plugins": [
+      {
+        "name": "esdoc-standard-plugin",
+        "option": {
+          "brand": {
+            "title": "OS.js GUI API",
+            "description": "OS.js GUI API Documentation",
+            "repository": "https://github.com/os-js/osjs-core",
+            "author": "Anders Evenrud <andersevenrud@gmail.com>"
+          },
+          "lint": {
+            "enable": false
+          },
+          "coverage": {
+            "enable": false
+          },
+          "undocumentIdentifier": {
+            "enable": false
+          }
+        }
+      },
+      {
+        "name": "esdoc-publish-html-plugin"
+      }
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}

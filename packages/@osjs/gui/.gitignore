@@ -1,0 +1,5 @@
+.swp
+.tern-*
+.flowconfig
+node_modules
+dist/
