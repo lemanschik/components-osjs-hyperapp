@@ -41,3 +41,7 @@ See the [Official Manuals](https://manual.os-js.org/) for articles, tutorials an
 * [Twitter](https://twitter.com/osjsorg) ([author](https://twitter.com/andersevenrud))
 * [Facebook](https://www.facebook.com/os.js.org)
 * [Docker Hub](https://hub.docker.com/u/osjs/)
+
+## Notes
+TODO: webpackv4 optimize-css-assets-webpack-plugin => webpackv5 css-minimizer-webpack-plugin
+TODO: Refactor all builds to esm only and document how to build cjs with rollup installed global.
