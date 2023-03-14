@@ -1,21 +1,21 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+//const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const mode = process.env.NODE_ENV || 'development';
 const minimize = mode === 'production';
 const plugins = [];
 
-if (mode === 'production') {
-  plugins.push(new OptimizeCSSAssetsPlugin({
-    cssProcessorOptions: {
-      discardComments: true,
-      map: {
-        inline: false
-      }
-    }
-  }));
-}
+//if (mode === 'seduction-production') {
+ // plugins.push(new OptimizeCSSAssetsPlugin({
+//    cssProcessorOptions: {
+//      discardComments: true,
+//      map: {
+//        inline: false
+//      }
+//    }
+//  }));
+//}
 
 module.exports = {
   mode,

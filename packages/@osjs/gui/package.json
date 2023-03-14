@@ -8,9 +8,9 @@
   "scripts": {
     "test": "npm run eslint && npm run stylelint",
     "eslint": "eslint index.js 'src/**/*.js'",
-    "build": "webpack",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack",
     "build:esm": "rollup -c",
-    "watch": "webpack --watch",
+    "watch": "NODE_OPTIONS=--openssl-legacy-provider webpack --watch",
     "watch:esm": "rollup -c --watch",
     "stylelint": "stylelint index.scss src/**/*.scss",
     "prepublishOnly": "npm run test && rm ./dist/* && NODE_ENV=production npm run build && npm run build:esm"
@@ -34,20 +34,17 @@
     "LICENSE"
   ],
   "dependencies": {
-    "hyperapp": "^1.2.10",
-    "hyperapp-nestable": "^1.0.0"
+    "osjs-modules": "file:../osjs-modules"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@osjs/dev-meta": "^2.1.0",
+    "@osjs/dev-meta": "file:../osjs-dev-meta",
     "husky": "^8.0.1",
-    "rollup": "^1.32.1",
     "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-babel-minify": "^9.1.1",
+    "rollup-plugin-babel-minify": "^10.0.0",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-uglify": "^6.0.4"
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "author": "Anders Evenrud <andersevenrud@gmail.com>",
   "license": "BSD-2-Clause",
