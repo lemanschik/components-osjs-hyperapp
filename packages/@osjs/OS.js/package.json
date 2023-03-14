@@ -17,8 +17,8 @@
     "make:application": "osjs-cli make:application",
     "make:iframe-application": "osjs-cli make:iframe-application",
     "make:provider": "osjs-cli make:provider",
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack",
+    "watch": "NODE_OPTIONS=--openssl-legacy-provider webpack--watch"
   },
   "keywords": [
     "osjs"
@@ -26,8 +26,8 @@
   "author": "Anders Evenrud <andersevenrud@gmail.com>",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "@osjs/dev-meta": "^2.1.0",
-    "html-webpack-plugin": "^3.2.0",
+    "@osjs/dev-meta": "file:../osjs-dev-meta",
+    "html-webpack-plugin": "^5.5.0",
     "source-map-loader": "^0.2.4"
   },
   "dependencies": {
@@ -39,7 +39,7 @@
     "@osjs/filemanager-application": "^1.6.2",
     "@osjs/freedesktop-sounds": "^3.0.3",
     "@osjs/gnome-icons": "^4.0.5",
-    "@osjs/gui": "^4.0.36",
+    "@osjs/gui": "file:../osjs-gui",
     "@osjs/htmlviewer-application": "^1.2.6",
     "@osjs/musicplayer-application": "^1.2.8",
     "@osjs/panels": "^3.0.31",
