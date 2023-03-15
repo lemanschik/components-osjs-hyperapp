@@ -1,0 +1,54 @@
+os-js/osjs-dialogs                     OS.js Dialogs Module                                     public            5d
+os-js/osjs-terminal-application        OS.js v3 Terminal Application (local terminal) WIP       public            8d
+os-js/osjs-standard-theme              OS.js Standard Theme Module                              public            13d
+os-js/osjs-vnc-application             OS.js noVNC Application                                  public            14d
+os-js/osjs-cli                         OS.js CLI Module                                         public            20d
+os-js/osjs-example-application         OS.js Example Application                                public            Feb 11, 2023
+os-js/osjs-server                      OS.js Server Module                                      public            Jan  9, 2023
+os-js/osjs-dev-meta                    OS.js Development Meta Package                           public            Jan  9, 2023
+os-js/osjs-panels                      OS.js Panels Module                                      public            Jan  7, 2023
+os-js/osjs-client                      OS.js Client Module                                      public            Jan  6, 2023
+os-js/osjs-gui                         OS.js GUI Module                                         public            Jan  5, 2023
+os-js/OS.js                            OS.js - JavaScript Web Desktop Platform                  public            Dec 12, 2022
+os-js/manual.os-js.org                 OS.js Manual Sources                                     public            Oct 16, 2022
+os-js/osjs-example-icons               OS.js Example Theme                                      public            Sep 15, 2022
+os-js/osjs-filemanager-application     OS.js File Manager Application                           public            Aug 11, 2022
+os-js/osjs-ace-application             OS.js Ace Editor Application                             public            Aug  9, 2022
+os-js/osjs-calculator-application      OS.js Calculator Application                             public            Aug  9, 2022
+os-js/osjs-draw-application            OS.js Draw Application                                   public            Aug  9, 2022
+os-js/osjs-epub-application            OS.js ePUB Reader Application                            public            Aug  9, 2022
+os-js/osjs-htmlviewer-application      OS.js HTML Viewer Application                            public            Aug  9, 2022
+os-js/osjs-musicplayer-application     OS.js Music Player Application                           public            Aug  9, 2022
+os-js/osjs-pdfreader-application       OS.js PDF Reader Application                             public            Aug  9, 2022
+os-js/osjs-preview-application         OS.js Previewer Application                              public            Aug  9, 2022
+os-js/osjs-settings-application        OS.js Settings Application                               public            Aug  9, 2022
+os-js/osjs-strophejs-application       OS.js Strophe.js XMPP Chat Application                   public            Aug  9, 2022
+os-js/osjs-textpad-application         OS.js Textpad Application                                public            Aug  9, 2022
+os-js/osjs-webodf-application          OS.js OpenDocument Reader Application                    public            Aug  9, 2022
+os-js/osjs-writer-application          OS.js Writer Application                                 public            Aug  9, 2022
+os-js/osjs-xpra-application            OS.js Xpra Client Application                            public            Aug  9, 2022
+os-js/osjs-xterm-application           OS.js Xterm Application                                  public            Aug  9, 2022
+os-js/osjs-example-iframe-application  OS.js Example IFrame Application                         public            Aug  9, 2022
+os-js/osjs-example-provider            OS.js Example Service Provider                           public            Aug  9, 2022
+os-js/osjs-example-react-application   OS.js Example React Application                          public            Aug  9, 2022
+os-js/osjs-example-vue-application     OS.js Example Vue Application                            public            Aug  9, 2022
+os-js/osjs-ftp-adapter                 OS.js FTP VFS Adapter                                    public            Aug  9, 2022
+os-js/osjs-database-auth               OS.js Database Auth Adapter                              public            Aug  9, 2022
+os-js/osjs-database-settings           OS.js Database Settings Storage Adapter                  public            Aug  9, 2022
+os-js/osjs-gdrive-adapter              OS.js Google Drive VFS Adapter                           public            Aug  9, 2022
+os-js/osjs-pam-auth                    OS.js PAM Authentication Module                          public            Aug  9, 2022
+os-js/osjs-webdav-adapter              OS.js WebDAV VFS Adapter                                 public            Aug  9, 2022
+os-js/osjs-wireless-tools-provider     OS.js Wireless-tools Service Provider                    public            Aug  9, 2022
+os-js/osjs-gapi-provider               OS.js Google API Service Provider                        public            Aug  9, 2022
+os-js/osjs-proc-provider               OS.js Process Service Provider                           public            Aug  9, 2022
+os-js/osjs-gnome-icons                 OS.js Gnome Icon Theme                                   public            Aug  9, 2022
+os-js/osjs-freedesktop-sounds          OS.js Freedesktop Sound Theme                            public            Aug  9, 2022
+os-js/osjs-standard-dark-theme         OS.js Standard Dark Theme                                public            Aug  9, 2022
+os-js/osjs-windows8-theme              OS.js Windows 8 Style Theme                              public            Aug  9, 2022
+os-js/osjs-installers                  OS.js Installer Sources                                  public            Aug  9, 2022
+os-js/osjs-widgets                     OS.js Widgets Module                                     public            Aug  9, 2022
+os-js/os-js.org                        OS.js Homepage Source                                    public            Aug  8, 2022
+os-js/manual-legacy.os-js.org          Legacy (v2) OS.js manual source                          public            Jul 31, 2022
+os-js/osjs-common                      OS.js Common Modules                                     public            Jul 29, 2022
+os-js/osjs-event-emitter               A simple EventEmitter implementation                     public            Jul 29, 2022
+os-js/lerna                            OS.js Lerna                                              public            Apr 23, 2022

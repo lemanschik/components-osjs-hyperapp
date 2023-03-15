@@ -1,0 +1,15 @@
+{
+  "name": "repos",
+  "version": "0.0.0-dev.0",
+  "type": "module",
+  "description": "mono repo",
+  "main": "OS.js",
+  "workspaces": [
+    "@osjs/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,102 @@
+/*!
+$base-margin: 1em;
+
+@import "./src/_panel.scss";
+@import "./src/items/_clock.scss";
+@import "./src/items/_menu.scss";
+@import "./src/items/_tray.scss";
+@import "./src/items/_windows.scss";
+ */
+
+.osjs-panel {
+  display: flex;
+  min-height: 1em;
+  align-items: center;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  line-height: normal;
+}
+.osjs-panel[data-ontop=true] {
+  z-index: 16777271;
+}
+.osjs-panel[data-position=top] {
+  top: 0;
+}
+.osjs-panel[data-position=bottom] {
+  bottom: 0;
+}
+.osjs-panel > .osjs-panel-item {
+  min-height: 1em;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0.6666666667em;
+}
+.osjs-panel .osjs-panel-item--icon {
+  display: flex;
+  align-items: center;
+}
+.osjs-panel .osjs-panel-item--icon > img {
+  height: 1em;
+  margin-right: 0.5em;
+}
+
+.osjs-root[data-dir=rtl] .osjs-panel .osjs-panel-item--icon > img {
+  margin-right: 0;
+  margin-left: 0.5em;
+}
+
+
+.osjs-panel-item[data-name=clock] {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+
+.osjs-panel-item[data-name=menu] {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.osjs-panel-item[data-name=menu] > div {
+  padding: 0.6666666667em;
+}
+
+
+.osjs-panel-item[data-name=tray] {
+  display: flex;
+  padding: 0;
+}
+.osjs-panel-item[data-name=tray] > div {
+  flex: 1 1;
+  padding: 0.6666666667em 0.3333333333em;
+}
+.osjs-panel-item[data-name=tray] > div > img {
+  margin-left: 0 !important;
+  margin-right: 0;
+  vertical-align: middle;
+}
+
+
+.osjs-panel-item[data-name=windows] {
+  display: flex;
+  flex: 1 1;
+  overflow: hidden;
+  padding: 0;
+}
+.osjs-panel-item[data-name=windows] > div {
+  cursor: pointer;
+  flex: initial;
+  padding: 0.6666666667em;
+  min-width: 4em;
+}
+.osjs-panel-item[data-name=windows] > div > span {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*# sourceMappingURL=main.css.map*/

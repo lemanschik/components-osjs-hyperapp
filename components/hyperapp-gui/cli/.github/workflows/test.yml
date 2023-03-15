@@ -1,0 +1,20 @@
+name: Unit tests
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Unit tests (node ${{ matrix.node }})
+    strategy:
+      matrix:
+        node: [ '16', '14', '12' ]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+    - run: npm ci
+    - run: npm run jest

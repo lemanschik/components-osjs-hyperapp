@@ -1,0 +1,1113 @@
+@charset "UTF-8";
+/*!
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui {
+  display: flex;
+  position: relative;
+  min-width: 1em;
+  min-height: 1em;
+  box-sizing: border-box;
+}
+
+.osjs-window-content > .osjs-gui-box:only-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.osjs-gui-horizontal {
+  flex-direction: column;
+}
+
+.osjs-gui-vertical {
+  flex-direction: row;
+}
+
+.osjs-icon {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-color: transparent;
+  background-size: 100%;
+  min-width: 1rem;
+  min-height: 1rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-box {
+  display: flex;
+  overflow: hidden;
+}
+.osjs-gui-box > .osjs-gui-menubar, .osjs-gui-box > .osjs-gui-toolbar, .osjs-gui-box > .osjs-gui-statusbar {
+  flex-shrink: 0;
+}
+
+.osjs-gui-box > .osjs-gui,
+.osjs-gui-box-container {
+  margin: 0.5em;
+  flex-shrink: 0;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-button > button {
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0.5em;
+  outline: 0 none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 0 none;
+  background: transparent;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  white-space: nowrap;
+}
+.osjs-gui-button > button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+.osjs-gui-button > button > .osjs-icon + .osjs-label {
+  margin-left: 0.5em;
+}
+.osjs-gui-button > button > span {
+  vertical-align: middle;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-field {
+  position: relative;
+}
+.osjs-gui-field select,
+.osjs-gui-field textarea,
+.osjs-gui-field input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: 0.5em;
+  margin: 0;
+  background: transparent;
+  border: 0 none;
+  box-sizing: border-box;
+  resize: none;
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 0;
+  /* NOTE: Why did I add  this ?! (#18)
+  user-select: auto;
+  */
+}
+
+.osjs-gui-textarea-field {
+  flex-direction: column;
+}
+.osjs-gui-textarea-field > textarea {
+  flex-grow: 1;
+}
+
+.osjs-gui-select-field > div {
+  position: relative;
+  flex-basis: 100%;
+}
+.osjs-gui-select-field > div > select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.osjs-gui-select-field > div::after {
+  content: "↴";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  right: 0.5em;
+}
+
+.osjs-gui-toggle-field > label {
+  position: relative;
+  user-select: none !important;
+  display: flex;
+}
+.osjs-gui-toggle-field > label > input {
+  display: block;
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.osjs-gui-toggle-field > label > input:checked + span::after {
+  display: block;
+}
+.osjs-gui-toggle-field > label > .osjs-toggle-input {
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+.osjs-gui-toggle-field > label > .osjs-toggle-input::after, .osjs-gui-toggle-field > label > .osjs-toggle-input::before {
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  box-sizing: border-box;
+}
+.osjs-gui-toggle-field > label > .osjs-toggle-input::before {
+  z-index: 10;
+}
+.osjs-gui-toggle-field > label > .osjs-toggle-input::after {
+  content: "❌";
+  display: none;
+  font-size: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+.osjs-gui-toggle-field > label > .osjs-toggle-label {
+  display: block;
+  flex-grow: 1;
+  position: relative;
+  padding-left: 0.5em;
+}
+
+.osjs-gui-field-label {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: left;
+}
+.osjs-gui-field-label > label {
+  display: block;
+}
+.osjs-gui-field-label > .osjs-gui {
+  margin: 0;
+}
+.osjs-gui-field-label.osjs-gui-field-label-on-top {
+  flex-direction: column;
+}
+.osjs-gui-field-label.osjs-gui-field-label-on-top > label {
+  margin-bottom: 0.5em;
+}
+.osjs-gui-field-label.osjs-gui-field-label-on-bottom {
+  flex-direction: column-reverse;
+}
+.osjs-gui-field-label.osjs-gui-field-label-on-bottom > label {
+  margin-top: 0.5em;
+}
+.osjs-gui-field-label.osjs-gui-field-label-on-left {
+  flex-direction: row;
+  align-items: center;
+}
+.osjs-gui-field-label.osjs-gui-field-label-on-left > label {
+  margin-right: 0.5em;
+}
+.osjs-gui-field-label.osjs-gui-field-label-on-left > .osjs-gui {
+  flex: 1 1;
+}
+
+.osjs-root[data-dir=rtl] .osjs-gui-select-field > div::after {
+  right: auto;
+  left: 0.5em;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-list-view {
+  overflow: hidden;
+}
+.osjs-gui-list-view .osjs-icon {
+  margin-right: 0.5em;
+}
+
+.osjs-gui-list-view-wrapper {
+  min-height: 4em;
+  display: flex;
+  flex-basis: 100%;
+  overflow: auto;
+  align-items: flex-start;
+  position: relative;
+}
+
+.osjs-gui-list-view-pane {
+  min-width: 1em;
+  min-height: 1em;
+  position: relative;
+  flex: 1 1;
+}
+.osjs-gui-list-view-pane:last-child {
+  flex-grow: 1;
+}
+
+.osjs-gui-list-view-cell,
+.osjs-gui-list-view-header {
+  position: relative;
+  padding: 0.5em;
+  flex-shrink: 0;
+  z-index: 1;
+  min-height: 1em;
+  display: flex;
+}
+.osjs-gui-list-view-cell > span,
+.osjs-gui-list-view-header > span {
+  min-height: 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  flex: 1 1;
+  line-height: 1;
+}
+
+.osjs-gui-list-view-header {
+  z-index: 10;
+  position: sticky;
+  top: 0;
+}
+
+.osjs-root[data-dir=rtl] .osjs-gui-list-view .osjs-icon {
+  margin-right: 0;
+  margin-left: 0.5em;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-icon-view-wrapper {
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.osjs-gui-icon-view-entry {
+  position: relative;
+  display: inline-block;
+  width: 6em;
+  height: 7em;
+  text-align: center;
+  overflow: visible;
+  z-index: 1;
+  /*
+  &:not(.osjs__active) .osjs__label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  */
+}
+.osjs-gui-icon-view-entry.osjs__active {
+  z-index: 2;
+}
+.osjs-gui-icon-view-entry.osjs__active .osjs__label {
+  overflow: visible !important;
+  height: auto !important;
+}
+.osjs-gui-icon-view-entry * {
+  pointer-events: none;
+}
+.osjs-gui-icon-view-entry > .osjs__container {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.osjs-gui-icon-view-entry > .osjs__container > .osjs__image {
+  padding: 0.5em;
+}
+.osjs-gui-icon-view-entry > .osjs__container > .osjs__image > .osjs-icon {
+  width: 3em;
+  height: 3em;
+}
+.osjs-gui-icon-view-entry > .osjs__container > .osjs__label {
+  padding: 0.5em;
+  height: 2em;
+  line-height: 1.2;
+  overflow: hidden;
+  word-break: break-all;
+}
+.osjs-gui-icon-view-entry > .osjs__container > .osjs__label > span {
+  display: block;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-image {
+  display: block;
+}
+
+.osjs-gui-video {
+  display: block;
+  background-color: #000;
+  flex-basis: 100%;
+}
+.osjs-gui-video > video {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-menubar {
+  margin: 0 !important;
+}
+.osjs-gui-menubar > div {
+  box-sizing: border-box;
+}
+.osjs-gui-menubar > div > span {
+  margin: 0.5em;
+  display: block;
+  pointer-events: none;
+}
+
+.osjs-gui-menu {
+  position: absolute;
+  z-index: 9999999999;
+}
+.osjs-gui-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.osjs-gui-menu ul > li {
+  margin: 0;
+  padding: 0;
+}
+.osjs-gui-menu ul > li > div {
+  position: relative;
+  cursor: pointer;
+}
+.osjs-gui-menu ul > li > div > ul {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  left: 100%;
+  top: 0;
+}
+.osjs-gui-menu ul > li > div > ul.clamp-right {
+  left: auto;
+  right: 100%;
+}
+.osjs-gui-menu ul > li > div:hover > ul {
+  display: block;
+}
+
+.osjs-gui-menu-separator {
+  height: 1px;
+  display: block;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+.osjs-gui-menu-separator::after {
+  content: "";
+  display: block;
+  background: rgba(255, 255, 255, 0.5);
+  height: 1px;
+}
+
+.osjs-gui-menu-label {
+  display: flex;
+  padding: 0.5em;
+  padding-right: 1.5em;
+  box-sizing: border-box;
+  position: relative;
+  pointer-events: none;
+  white-space: nowrap;
+  min-height: 1rem;
+  align-items: center;
+}
+.osjs-gui-menu-label > .osjs-icon {
+  margin-right: 0.5em;
+}
+.osjs-gui-menu-label > .osjs-gui-menu-checkbox {
+  margin-right: 0.5em;
+}
+.osjs-gui-menu-label > .osjs-gui-menu-checkbox::after {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  content: "✓";
+  text-align: center;
+  display: none;
+}
+.osjs-gui-menu-label > .osjs-gui-menu-checkbox.active::after {
+  display: inline;
+}
+
+.osjs-gui-menu-container[data-has-children] > .osjs-gui-menu-label::after {
+  content: "▶";
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.osjs-root[data-dir=rtl] .osjs-gui-menu-label {
+  padding-right: 0.5em;
+  padding-left: 1.5em;
+}
+.osjs-root[data-dir=rtl] .osjs-gui-menu-label > .osjs-icon, .osjs-root[data-dir=rtl] .osjs-gui-menu-label > .osjs-gui-menu-checkbox {
+  margin-right: 0;
+  margin-left: 0.5em;
+}
+.osjs-root[data-dir=rtl] .osjs-gui-menu-container[data-has-children] > .osjs-gui-menu-label::after {
+  right: auto;
+  left: 0.5em;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-panes {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.osjs-gui-panes-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+}
+.osjs-gui-panes-inner.osjs-gui-vertical > .osjs-gui-panes-pane > .osjs-gui {
+  width: 100%;
+}
+.osjs-gui-panes-inner.osjs-gui-vertical > .osjs-gui-panes-spacer {
+  height: 100%;
+  width: 0.5em;
+  min-width: 0.5em;
+  cursor: ew-resize;
+}
+.osjs-gui-panes-inner.osjs-gui-horizontal > .osjs-gui-panes-pane > .osjs-gui {
+  height: 100%;
+}
+.osjs-gui-panes-inner.osjs-gui-horizontal > .osjs-gui-panes-spacer {
+  width: 100%;
+  height: 0.5em;
+  min-height: 0.5em;
+  cursor: ns-resize;
+}
+
+.osjs-gui-panes-pane {
+  position: relative;
+  margin: 0.5em;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+}
+.osjs-gui-panes-pane:last-of-type {
+  flex-grow: 1;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-progressbar-wrapper {
+  display: flex;
+  z-index: 1;
+  width: 100%;
+  line-height: 2;
+  padding: 0.5em;
+  text-align: center;
+  min-height: 2em;
+  position: relative;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+.osjs-gui-progressbar-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  z-index: 2;
+}
+
+.osjs-gui-progressbar-label {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.osjs-gui-progressbar-label > span {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-statusbar {
+  white-space: nowrap;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-tabs {
+  display: flex;
+  flex: 1 1;
+}
+
+.osjs-gui-tabs-wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.osjs-gui-tabs-header {
+  display: flex;
+  flex-shrink: 0;
+}
+.osjs-gui-tabs-header > div {
+  padding: 0.5em;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.osjs-gui-tabs-panes {
+  position: relative;
+  z-index: 1;
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
+}
+.osjs-gui-tabs-panes > div {
+  display: none;
+  padding: 0.5em;
+  width: 100%;
+  overflow: auto;
+}
+.osjs-gui-tabs-panes > div.osjs__active {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-toolbar {
+  display: flex;
+}
+.osjs-gui-toolbar > .osjs-gui {
+  flex-shrink: 0;
+}
+.osjs-gui-toolbar.osjs-gui-vertical > .osjs-gui:not(:last-child) {
+  margin-right: 1em;
+}
+.osjs-gui-toolbar.osjs-gui-horizontal > .osjs-gui:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.osjs-root[data-dir=rtl] .osjs-gui-toolbar.osjs-gui-vertical > .osjs-gui:not(:last-child) {
+  margin-right: 0;
+  margin-left: 1em;
+}
+.osjs-root[data-dir=rtl] .osjs-gui-toolbar.osjs-gui-horizontal > .osjs-gui:not(:last-child) {
+  margin-bottom: 0;
+  margin-top: 1em;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-iframe > iframe {
+  display: block;
+  border: 0 none;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+.osjs-gui-expander {
+  display: block;
+}
+.osjs-gui-expander-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.osjs-gui-expander-header {
+  flex: 1 1;
+  display: flex;
+  padding: 0.5em;
+  cursor: pointer;
+}
+.osjs-gui-expander-header-icon {
+  flex: 0 0;
+  min-width: 1em;
+  margin-right: 0.5em;
+}
+.osjs-gui-expander-header-icon::after {
+  content: "▼";
+}
+.osjs-gui-expander-header-icon[data-active=true]::after {
+  content: "▲";
+}
+.osjs-gui-expander-header-label {
+  flex: 1 1;
+}
+.osjs-gui-expander-content {
+  margin-top: 1em;
+}
+
+/*# sourceMappingURL=main.css.map*/

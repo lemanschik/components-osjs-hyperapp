@@ -1,0 +1,22 @@
+
+.osjs-widget {
+  position: absolute;
+  z-index: 2;
+}
+.osjs-widget > .osjs-widget-resize {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.osjs-widget.active, .osjs-widget:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.osjs-widget.active > .osjs-widget-resize, .osjs-widget:hover > .osjs-widget-resize {
+  display: block !important;
+}
+
+/*# sourceMappingURL=main.css.map*/

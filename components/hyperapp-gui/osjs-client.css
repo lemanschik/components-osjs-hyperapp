@@ -1,0 +1,808 @@
+@charset "UTF-8";
+/*!
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @license Simplified BSD License
+ */
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @license Simplified BSD License
+ */
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @license Simplified BSD License
+ */
+.osjs-root {
+  overflow: hidden;
+  line-height: normal;
+  font-size: 13px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url(gui/wallpaper.png);
+  position: fixed;
+  top: 0;
+  left: 0;
+  touch-action: none;
+}
+.osjs-root[data-dir=rtl] {
+  direction: rtl;
+}
+.osjs-root textarea,
+.osjs-root input,
+.osjs-root label {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+.osjs-root[data-mousemove=true] iframe {
+  pointer-events: none;
+}
+
+.osjs-boot-splash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999999999;
+  background-color: #000;
+  color: #fff;
+  font-size: 120%;
+  font-family: sans-serif;
+  padding: 1em;
+  text-align: center;
+}
+
+.osjs-contents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @license Simplified BSD License
+ */
+.osjs-window-behavior-lofi {
+  position: absolute;
+  border: 2px solid #000;
+}
+
+.osjs-window-resize {
+  z-index: 10;
+  position: absolute;
+  min-width: 1em;
+  min-height: 1em;
+}
+.osjs-window-resize[data-direction^=n] {
+  top: -0.5em;
+}
+.osjs-window-resize[data-direction^=s] {
+  bottom: -0.5em;
+}
+.osjs-window-resize[data-direction$=w] {
+  left: -0.5em;
+}
+.osjs-window-resize[data-direction$=e] {
+  right: -0.5em;
+}
+.osjs-window-resize[data-direction=nw] {
+  cursor: nw-resize;
+}
+.osjs-window-resize[data-direction=sw] {
+  cursor: sw-resize;
+}
+.osjs-window-resize[data-direction=ne] {
+  cursor: ne-resize;
+}
+.osjs-window-resize[data-direction=se] {
+  cursor: se-resize;
+}
+.osjs-window-resize[data-direction=n] {
+  cursor: n-resize;
+}
+.osjs-window-resize[data-direction=s] {
+  cursor: s-resize;
+}
+.osjs-window-resize[data-direction=w] {
+  cursor: w-resize;
+}
+.osjs-window-resize[data-direction=e] {
+  cursor: e-resize;
+}
+.osjs-window-resize[data-direction=s], .osjs-window-resize[data-direction=n] {
+  left: 0.5em;
+  right: 0.5em;
+}
+.osjs-window-resize[data-direction=e], .osjs-window-resize[data-direction=w] {
+  top: 0.5em;
+  bottom: 0.5em;
+}
+
+.osjs-window-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.osjs-window-header {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 0;
+  min-height: 2.2em;
+}
+.osjs-window-header > div {
+  height: 100%;
+}
+
+.osjs-window-icon > div {
+  width: 1em;
+  height: 1em;
+  background: url(logo-blue-32x32.png) no-repeat 50% 50%;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.osjs-window-title {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.osjs-window-button {
+  cursor: pointer;
+  min-width: 1em;
+  position: relative;
+  flex-basis: 1em;
+}
+.osjs-window-button * {
+  pointer-events: none;
+}
+.osjs-window-button > div {
+  width: 1em;
+  height: 1em;
+}
+.osjs-window-button:not(:last-child) {
+  margin-right: 0.25em;
+}
+
+.osjs-root[data-dir=rtl] .osjs-window-button:not(:last-child) {
+  margin-right: 0;
+  margin-left: 0.25em;
+}
+
+.osjs-window-content {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  flex: 1 1;
+  user-select: auto;
+}
+
+.osjs-window {
+  position: absolute;
+  box-sizing: border-box;
+  user-select: none;
+  visibility: visible;
+  touch-action: none;
+  /* This actually increases performance */
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
+}
+.osjs-window::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999999999;
+  display: none;
+}
+.osjs-window[data-maximized=true] {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+.osjs-window[data-maximized=true] .osjs-window-resize {
+  cursor: inherit !important;
+}
+.osjs-window[data-minimized=true] {
+  display: none;
+  visibility: hidden;
+}
+.osjs-window[data-focused=false] iframe {
+  pointer-events: none;
+}
+.osjs-window[data-resizing=true], .osjs-window[data-moving=true] {
+  cursor: move;
+}
+.osjs-window[data-loading=true]::after {
+  display: block;
+}
+.osjs-window.osjs__drop {
+  outline: 2px solid #000;
+}
+.osjs-window[data-minimizable=false] .osjs-window-button[data-action=minimize], .osjs-window[data-maximizable=false] .osjs-window-button[data-action=maximize], .osjs-window[data-closable=false] .osjs-window-button[data-action=close], .osjs-window[data-resizable=false] .osjs-window-resize {
+  display: none;
+}
+
+.osjs-root[data-window-action=true] .osjs-window {
+  /* FIXME: Maybe limit this as to increase perf ? */
+}
+.osjs-root[data-window-action=true] .osjs-window * {
+  pointer-events: none;
+}
+
+.osjs-root[data-mobile=true] .osjs-window {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1;
+}
+.osjs-root[data-mobile=true] .osjs-window .osjs-window-button[data-action=maximize] {
+  display: none;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @license Simplified BSD License
+ */
+.osjs-notifications {
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  padding: 1em;
+  z-index: 16777272;
+  overflow: visible;
+}
+
+.osjs-notification {
+  padding: 1em;
+  box-sizing: border-box;
+  pointer-events: all;
+  min-width: 200px;
+  margin-bottom: 1em;
+}
+
+.osjs-notification-wrapper {
+  background-size: 3em;
+  background-repeat: no-repeat;
+}
+.osjs-notification-wrapper[data-has-icon=true] {
+  padding-left: calc(3em + 1em);
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @license Simplified BSD License
+ */
+.osjs-root.login::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  content: "";
+  z-index: 1000;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.65) 100%);
+}
+
+.osjs-login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+.osjs-login .osjs-login-field {
+  position: relative;
+}
+.osjs-login input,
+.osjs-login select,
+.osjs-login button {
+  padding: 0.5em;
+  display: block;
+  width: 100%;
+  border-radius: 0;
+  border: 0 none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  box-sizing: border-box;
+}
+.osjs-login input[type=submit],
+.osjs-login button {
+  cursor: pointer;
+}
+
+#osjs-login {
+  font-family: Roboto, sans-serif;
+  max-width: 400px;
+  width: 80%;
+}
+#osjs-login .osjs-login-header {
+  text-align: center;
+  font-weight: 300;
+  font-weight: bold;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 4px;
+  line-height: 1.5;
+}
+#osjs-login .osjs-login-logo {
+  min-width: 1em;
+  min-height: 1em;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#osjs-login .osjs-login-logo[data-position=bottom], #osjs-login .osjs-login-logo[data-position=top], #osjs-login .osjs-login-logo[data-position=middle] {
+  min-height: 4em;
+}
+#osjs-login .osjs-login-logo[data-position=left], #osjs-login .osjs-login-logo[data-position=right] {
+  min-width: 4em;
+}
+#osjs-login .osjs-login-logo[data-position=bottom] {
+  margin-top: 2em;
+}
+#osjs-login > div[data-position=left] {
+  margin-right: 2em;
+}
+#osjs-login > div[data-position=right] {
+  margin-left: 2em;
+}
+#osjs-login .osjs-login-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#osjs-login .osjs-login-field {
+  margin-top: 2em;
+}
+#osjs-login .osjs-login-field-select {
+  position: relative;
+}
+#osjs-login .osjs-login-field-select::after {
+  content: "↴";
+  position: absolute;
+  top: 50%;
+  right: 0.5em;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+#osjs-login .osjs-login-error {
+  background: rgba(255, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  text-decoration: uppercase;
+  padding: 1em;
+  margin-top: 2em;
+}
+#osjs-login .osjs-login-stamp {
+  margin-top: 2em;
+  font-size: 80%;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.5);
+}
+#osjs-login input {
+  outline: 1px solid rgba(255, 255, 255, 0.5);
+}
+#osjs-login input:focus, #osjs-login input:active {
+  box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.8);
+}
+#osjs-login input[type=submit],
+#osjs-login button {
+  padding: 1em;
+  background-color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#osjs-login select,
+#osjs-login input[type=password],
+#osjs-login input[type=text] {
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.5);
+  color: #fff;
+  letter-spacing: 1px;
+}
+#osjs-login select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+#osjs-login select option {
+  color: #000;
+}
+#osjs-login ::-webkit-input-placeholder {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bold;
+}
+#osjs-login ::-moz-placeholder {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bold;
+}
+#osjs-login :-ms-input-placeholder {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bold;
+}
+#osjs-login :-moz-placeholder {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @license Simplified BSD License
+ */
+.osjs-search {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000000000000000000;
+  width: 0;
+  height: 0;
+  overflow: visible;
+}
+
+.osjs-search-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  max-height: 80vh;
+  transform: translate(-50%, -50%);
+}
+
+.osjs-search-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+.osjs-search-message {
+  padding: 1em;
+}
+
+.osjs-search-results {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.osjs-search-result {
+  padding: 0;
+  margin: 1em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.osjs-search-result img {
+  margin-right: 1em;
+  width: 16px;
+  height: 16px;
+}
+
+/*
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @license Simplified BSD License
+ */
+.osjs-desktop-iconview {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.osjs-desktop-iconview__wrapper {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  width: calc(100% - 2em);
+  height: calc(100% - 2em);
+}
+.osjs-desktop-iconview__entry {
+  vertical-align: top;
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+  text-align: center;
+  overflow: hidden;
+  margin: 0.5em;
+  width: 5em;
+  height: 6.5em;
+}
+.osjs-desktop-iconview__entry__inner {
+  width: 100%;
+  min-height: 100%;
+}
+.osjs-desktop-iconview__entry__icon {
+  flex-grow: 1;
+  height: 4.5em;
+  width: 100%;
+  padding: 0.5em;
+  box-sizing: border-box;
+  position: relative;
+}
+.osjs-desktop-iconview__entry__icon__shortcut {
+  width: 1em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.osjs-desktop-iconview__entry__icon__icon {
+  width: 100%;
+}
+.osjs-desktop-iconview__entry__label {
+  height: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  word-break: break-all;
+  text-overflow: ellipsis;
+}
+.osjs-desktop-iconview__entry--selected {
+  z-index: 1;
+  overflow: visible;
+}
+.osjs-desktop-iconview__entry--selected .osjs-desktop-iconview__entry__icon {
+  background-color: rgba(0, 0, 200, 0.9);
+}
+.osjs-desktop-iconview__entry--selected .osjs-desktop-iconview__entry__label {
+  padding: 0 0.5em 0.5em 0.5em;
+  background-color: rgba(0, 0, 200, 0.9);
+  color: #fff;
+  overflow: visible;
+  height: auto;
+  overflow-wrap: break-word;
+}
+
+/*# sourceMappingURL=main.css.map*/

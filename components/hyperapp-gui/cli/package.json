@@ -1,0 +1,88 @@
+{
+  "name": "@osjs/cli",
+  "version": "3.2.0",
+  "description": "OS.js CLI",
+  "main": "index.js",
+  "files": [
+    "bin",
+    "src",
+    "index.js",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "npm run eslint && npm run jest",
+    "jest": "jest",
+    "coverage": "jest --coverage",
+    "eslint": "eslint index.js 'src/**/*.js' 'bin/*.js'",
+    "prepublishOnly": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/os-js/osjs-cli.git"
+  },
+  "keywords": [
+    "osjs"
+  ],
+  "bin": {
+    "osjs-cli": "index.js"
+  },
+  "engines": {
+    "node": ">=8.0"
+  },
+  "dependencies": {
+    "commander": "^4.1.1",
+    "consola": "^2.15.0",
+    "fs-extra": "^9.0.1",
+    "getopts": "^2.2.5",
+    "globby": "^11.0.2",
+    "inquirer": "^7.3.3",
+    "temp": "^0.9.4",
+    "which": "^2.0.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@osjs/dev-meta": "file:../osjs-dev-meta",
+    "husky": "^8.0.1"
+  },
+  "author": "Anders Evenrud <andersevenrud@gmail.com>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/os-js/osjs-cli/issues"
+  },
+  "homepage": "https://github.com/os-js/osjs-cli#readme",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2018,
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true
+      }
+    },
+    "extends": "@osjs/eslint-config"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "lcov"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/__mocks__/setup.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "src/tasks/watch.js",
+      "/node_modules/"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}
