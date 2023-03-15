@@ -5,7 +5,7 @@
   "description": "mono repo",
   "main": "OS.js",
   "workspaces": [
-    "@osjs/*"
+    "worktrees/*"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

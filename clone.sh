@@ -10,28 +10,28 @@ OSJS_REPOS=(
   "osjs-dev-meta"
 
   # Core
-  "osjs-client"
-  "osjs-common"
-  "osjs-cli"
-  "osjs-dialogs"
-  "osjs-server"
-  "osjs-panels"
-  "osjs-gui"
-  "osjs-event-emitter"
+  # "osjs-client"
+  # "osjs-common"
+  # "osjs-cli"
+  # "osjs-dialogs"
+  # "osjs-server"
+  # "osjs-panels"
+  # "osjs-gui"
+  # "osjs-event-emitter"
 
   # Extras
-  "osjs-widgets"
-  "osjs-installers"
+  # "osjs-widgets"
+  # "osjs-installers"
 
   # Themes
   "osjs-windows8-theme"
   "osjs-standard-theme"
   "osjs-standard-dark-theme"
-  "osjs-freedesktop-sounds"
-  "osjs-gnome-icons"
+  # "osjs-freedesktop-sounds"
+  # "osjs-gnome-icons"
 
   # Providers
-  "osjs-proc-provider"
+  # "osjs-proc-provider"
   "osjs-gapi-provider"
   "osjs-wireless-tools-provider"
 

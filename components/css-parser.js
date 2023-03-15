@@ -1,3 +1,13 @@
+// internal
+// const styleObj = document.styleSheets[0].cssRules[0].style;
+// console.log(styleObj.cssText);
+
+// for (let i = styleObj.length; i--; ) {
+//   const nameString = styleObj[i];
+//   styleObj.removeProperty(nameString);
+// }
+
+// console.log(styleObj.cssText);
 // http://www.w3.org/TR/CSS21/grammar.html
 // https://github.com/visionmedia/css-parse/pull/49#issuecomment-30088027
 var commentre = /\/\*[^*]*\*+([^/*][^*]*\*+)*\//g

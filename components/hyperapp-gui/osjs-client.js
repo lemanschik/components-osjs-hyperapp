@@ -3,7 +3,7 @@ import { EventEmitter } from './eventemitter/osjs-eventemitter.js';
 import * as mediaQuery from 'css-mediaquery';
 import { CoreBase, ServiceProvider } from './common/osjs-common.js';
 import dateformat from 'dateformat';
-import { app, h } from 'hyperapp';
+import { app, h } from './hyperapp.js';
 import Cookies from 'js-cookie';
 import simplejsonconf from 'simplejsonconf';
 
@@ -11980,4 +11980,4 @@ class SettingsServiceProvider extends ServiceProvider {
 
 const icon = './logo-blue-32x32.png';
 
-export { Application, Auth, AuthServiceProvider, BasicApplication, Clipboard, Core, CoreServiceProvider, Desktop, DesktopServiceProvider, Filesystem, Login, Middleware, Notification, NotificationServiceProvider, Notifications, Packages, Search, Settings, SettingsServiceProvider, Splash, Tray, VFSServiceProvider, Websocket, Window, WindowBehavior, defaultConfiguration as configuration, icon, instance as logger };
+export { Application, Auth, AuthServiceProvider, BasicApplication, Clipboard, Core, Core as Gui, CoreServiceProvider, Desktop, DesktopServiceProvider, Filesystem, Login, Middleware, Notification, NotificationServiceProvider, Notifications, Packages, Search, Settings, SettingsServiceProvider, Splash, Tray, VFSServiceProvider, Websocket, Window, WindowBehavior, defaultConfiguration as configuration, icon, instance as logger };
